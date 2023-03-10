@@ -58,49 +58,62 @@ public class ToDoList {
 
 
 	private void delete() {
-		view();
-		System.out.print("Select Task you want to delete (0 to exit) : ");
-		int delete = scan.nextInt();
-		scan.nextLine();
-		
-		toDoList.remove(delete-1);
+		while(true) {
+			view();
+			System.out.print("Select Task you want to delete (0 to exit) : ");
+			int delete = scan.nextInt();
+			scan.nextLine();
+			if(delete==0) {
+				return;
+			}
+			
+			toDoList.remove(delete-1);
+		}
 		
 	}
 
 
 	private void update() {
-		view();
-		System.out.print("Select Task you want to update (0 to exit) : ");
-		int update = scan.nextInt();
-		scan.nextLine();
-		
-		System.out.println("Do you want to change the task name? (y/n) : ");
-		String yesno = scan.nextLine();
-		
-		if(yesno.equals("y")) {
-			System.out.print("Task name : ");
-			String name = scan.nextLine();
-			toDoList.get(update-1).setTaskName(name);
-		}
-		
-		
-		System.out.println("Do you want to change the task deadline? (y/n) : ");
-		yesno = scan.nextLine();
-		if(yesno.equals("y")) {
-			System.out.print("Day Deadline (1-31) : ");
-			int day = scan.nextInt();
+		while(true) {
+			
+			view();
+			System.out.print("Select Task you want to update (0 to exit) : ");
+			int update = scan.nextInt();
 			scan.nextLine();
 			
-			System.out.print("Month Deadline (1-12) : ");
-			int month = scan.nextInt();
-			scan.nextLine();
+			if(update==0) {
+				return;
+			}
 			
-			System.out.print("Year Deadline : ");
-			int year = scan.nextInt();
-			scan.nextLine();
 			
-			Date date = new Date(year-1900, month-1, day);
-			toDoList.get(update-1).setTaskDeadline(date);
+			System.out.println("Do you want to change the task name? (y/n) : ");
+			String yesno = scan.nextLine();
+			
+			if(yesno.equals("y")) {
+				System.out.print("Task name : ");
+				String name = scan.nextLine();
+				toDoList.get(update-1).setTaskName(name);
+			}
+			
+			
+			System.out.println("Do you want to change the task deadline? (y/n) : ");
+			yesno = scan.nextLine();
+			if(yesno.equals("y")) {
+				System.out.print("Day Deadline (1-31) : ");
+				int day = scan.nextInt();
+				scan.nextLine();
+				
+				System.out.print("Month Deadline (1-12) : ");
+				int month = scan.nextInt();
+				scan.nextLine();
+				
+				System.out.print("Year Deadline : ");
+				int year = scan.nextInt();
+				scan.nextLine();
+				
+				Date date = new Date(year-1900, month-1, day);
+				toDoList.get(update-1).setTaskDeadline(date);
+			}
 		}
 
 	}
