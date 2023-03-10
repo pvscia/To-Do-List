@@ -1,3 +1,3 @@
 # To-Do-List
-![My Image]("ss/main_menu.png")
-![Alt text]("ss/main_menu.png")
+![Main Menu](/repository/ss/main_menu.png?raw=true "Main Menu")
+
